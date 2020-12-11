@@ -37,7 +37,7 @@
           Upload a picture and have the text extracted from the picture.
         </p>
       </div>
-      <form method="post" action="/extract_text">
+      <form method="post" action="/extract_text" enctype="multipart/form-data">
         <div
           class="flex w-full h-40 items-center justify-center bg-grey-lighter"
         >
@@ -63,14 +63,16 @@
         </div>
         <div>
           <input
-            class="text-center w-30 text-white bg-red-500 border-0 py-2 px-2 focus:outline-none hover:bg-red-600 rounded text-lg"
+            class="text-center w-30 text-white bg-red-500 border-0 py-1 px-2 focus:outline-none hover:bg-red-600 rounded text-lg"
             type="submit"
             value="Extract text"
           />
         </div>
       </form>
       {% if label %}
-      <div class="mt-3 bg-gray-300 text-white py-4 px-4">
+      <div
+        class="w-1/2 mr-auto ml-auto rounded-lg mt-4 bg-gray-600 text-white py-4 px-4"
+      >
         <p class="text-lg">{{label}}</p>
       </div>
       {% endif %}
