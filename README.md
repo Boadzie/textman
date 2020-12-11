@@ -1,5 +1,6 @@
 # Textman
 
+![Textman](./Textman.gif)
 _Extract text from image_
 
 ## Getting started
