@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css"
+      rel="stylesheet"
+    />
+    <title>Image To Text</title>
+    <style>
+      body {
+        content: "By boadzie Daniel";
+        margin: 0;
+        min-height: 100vh;
+        background-color: #ffffff;
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 80 80' width='80' height='80'%3E%3Cpath fill='%2335323a' fill-opacity='0.17' d='M14 16H9v-2h5V9.87a4 4 0 1 1 2 0V14h5v2h-5v15.95A10 10 0 0 0 23.66 27l-3.46-2 8.2-2.2-2.9 5a12 12 0 0 1-21 0l-2.89-5 8.2 2.2-3.47 2A10 10 0 0 0 14 31.95V16zm40 40h-5v-2h5v-4.13a4 4 0 1 1 2 0V54h5v2h-5v15.95A10 10 0 0 0 63.66 67l-3.47-2 8.2-2.2-2.88 5a12 12 0 0 1-21.02 0l-2.88-5 8.2 2.2-3.47 2A10 10 0 0 0 54 71.95V56zm-39 6a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm40-40a2 2 0 1 1 0-4 2 2 0 0 1 0 4zM15 8a2 2 0 1 0 0-4 2 2 0 0 0 0 4zm40 40a2 2 0 1 0 0-4 2 2 0 0 0 0 4z'%3E%3C/path%3E%3C/svg%3E");
+        font-family: "Montserrat", sans-serif;
+        font-weight: 700px;
+        text-align: center;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+    </style>
+  </head>
+  <body>
+    <section class="container text-gray-500 mx-auto px-4 py-4 flex flex-col">
+      <div>
+        <h3 class="text-6xl font-bold">Textman</h3>
+        <p class="mt-2 italic text-2xl text-left lg:text-center font-semibold">
+          Upload a picture and have the text extracted from the picture.
+        </p>
+      </div>
+      <form method="post" action="/extract_text">
+        <div
+          class="flex w-full h-40 items-center justify-center bg-grey-lighter"
+        >
+          <label
+            class="w-64 flex flex-col items-center px-4 py-4 bg-green-600 text-white rounded-lg shadow-lg tracking-wide uppercase border border-blue cursorpointer hover:bg-blue hover:text-white"
+          >
+            <svg
+              class="w-8 h-8"
+              fill="#fff"
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 20
+20"
+            >
+              <path
+                d="M16.88 9.1A4 4 0 0 1 16 17H5a5 5
+0 0 1-1-9.9V7a3 3 0 0 1 4.52-2.59A4.98 4.98 0 0 1 17
+8c0 .38-.04.74-.12 1.1zM11 11h3l-4-4-4 4h3v3h2v-3z"
+              />
+            </svg>
+            <span class="mt-2 text-base leading-normal">Select a file</span>
+            <input type="file" name="upload_file" class="hidden" />
+          </label>
+        </div>
+        <div>
+          <input
+            class="text-center w-30 text-white bg-red-500 border-0 py-2 px-2 focus:outline-none hover:bg-red-600 rounded text-lg"
+            type="submit"
+            value="Extract text"
+          />
+        </div>
+      </form>
+      {% if label %}
+      <div class="mt-3 bg-gray-300 text-white py-4 px-4">
+        <p class="text-lg">{{label}}</p>
+      </div>
+      {% endif %}
+    </section>
+  </body>
+</html>
